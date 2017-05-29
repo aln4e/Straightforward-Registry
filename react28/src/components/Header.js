@@ -9,9 +9,6 @@ class Header extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to the Atlantic Coast Conference</h2>
         </div>
-        <p className="App-intro">
-          The Atlantic Coast Conference is the premier academic and athletic conference in the United States. Get to know the schools and programs in depth.
-        </p>
       </div>
     )
   }
