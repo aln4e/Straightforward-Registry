@@ -27,6 +27,24 @@ app.post('/add', function(request, response){
   })
 })
 
+app.get('/teams', function (request,response){
+  Players.findAll({
+    where:{
+      school: 'Tennessee'
+    }
+  }).then((playersFound)=>{
+    response.status(200)
+    response.json({
+      players:playersFound
+    })
+  }).catch((error)=>{
+    response.status(400)
+    respnse.json({
+      error:error
+    })
+  })
+})
+
 app.listen(4000, function () {
  console.log('Port 4000 Baby!');
 });
