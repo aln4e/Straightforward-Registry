@@ -5,23 +5,25 @@ class Create extends Component {
   constructor(props){
     super(props)
     this.state = {
-      team: {
+      player: {
         firstName:"",
         lastName:"",
         position:"",
         school:"",
         rating:"",
-      }
+      },
+      message:"",
+      error:""
     }
   }
 
   handleChange(e){
     const target = e.target
-    const team = this.state.team
-    team[target.name]=target.value
-    console.log(this.state.team)
+    const player = this.state.player
+    player[target.name]=target.value
+    console.log(this.state.player)
     this.setState({
-      team:team
+      player:player
     })
   }
 
@@ -42,15 +44,15 @@ class Create extends Component {
         <form onSubmit={this.handleSubmit.bind(this)}>
           <div>
             <label>First Name: </label>
-            <input type="text" name="firstName" value={this.state.team.firstName} onChange={this.handleChange.bind(this)}/>
+            <input type="text" name="firstName" value={this.state.player.firstName} onChange={this.handleChange.bind(this)}/>
           </div>
           <div>
             <label>Last Name: </label>
-            <input type="text" name="lastName" value={this.state.team.lastName} onChange={this.handleChange.bind(this)}/>
+            <input type="text" name="lastName" value={this.state.player.lastName} onChange={this.handleChange.bind(this)}/>
           </div>
           <div>
             <label>School: </label>
-            <select name="school" value={this.state.team.school} onChange={this.handleChange.bind(this)}>
+            <select name="school" value={this.state.player.school} onChange={this.handleChange.bind(this)}>
               <option></option>
               <option>Boston College</option>
               <option>Clemson</option>
@@ -71,7 +73,7 @@ class Create extends Component {
           </div>
           <div>
             <label>Position: </label>
-            <select name="position" value={this.state.team.position} onChange={this.handleChange.bind(this)}>
+            <select name="position" value={this.state.player.position} onChange={this.handleChange.bind(this)}>
               <option></option>
               <option>Point Gawd</option>
               <option>Shooting Guard</option>
@@ -82,7 +84,7 @@ class Create extends Component {
           </div>
           <div>
             <label>Rating (out of 100): </label>
-            <input type="number" name="rating" value={this.state.team.rating} onChange={this.handleChange.bind(this)}/>
+            <input type="number" name="rating" value={this.state.player.rating} onChange={this.handleChange.bind(this)}/>
           </div>
           <div>
             <input type="submit" value="Submit"/>
