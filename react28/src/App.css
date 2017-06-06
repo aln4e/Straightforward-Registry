@@ -1,3 +1,9 @@
+.message {
+  text-align: center;
+  font-size: 20px;
+  background-color: lightblue;
+}
+
 .App {
   text-align: center;
 }

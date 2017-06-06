@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from '../components/Header';
+import {addPlayer} from '../actions/action';
 
 class Create extends Component {
   constructor(props){
@@ -21,7 +22,6 @@ class Create extends Component {
     const target = e.target
     const player = this.state.player
     player[target.name]=target.value
-    console.log(this.state.player)
     this.setState({
       player:player
     })
@@ -29,17 +29,12 @@ class Create extends Component {
 
   handleSubmit(e){
     e.preventDefault();
-    // let params = {
-    //   "method":"POST",
-    //   "headers":{"Content-Type":"Application/JSON"},
-    //   "body":JSON.stringify(this.state)
-    // }
-    // fetch("http://localhost:4000/add", params)
+    addPlayer(this.state)
   }
 
   render() {
     return (
-      <div>
+      <div className="container">
         <Header />
         <form onSubmit={this.handleSubmit.bind(this)}>
           <div>
