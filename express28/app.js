@@ -33,15 +33,16 @@ app.post('/add', function(request, response){
   })
 })
 
-app.get('/teams', function (request,response){
+app.get('/showRoster/:team', function (request,response){
+  var team = request.params["team"];
   Players.findAll({
     where:{
-      school: 'Tennessee'
+      school: team
     }
-  }).then((playersFound)=>{
+  }).then((roster)=>{
     response.status(200)
     response.json({
-      players:playersFound
+      players:roster
     })
   }).catch((error)=>{
     response.status(400)

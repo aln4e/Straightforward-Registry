@@ -6,6 +6,7 @@ class PlayerStore extends EventEmitter{
     super()
     this.newPlayer = {}
     this.message = ""
+    this.roster = []
   }
 
   getNewPlayer(){
@@ -24,13 +25,23 @@ class PlayerStore extends EventEmitter{
   updatePlayer(attributes){
     this.newPlayer = attributes
     this.updateMessage('New player created!')
-    // this.emit('playerCreated')
+    this.emit('playerCreated')
+  }
+
+  updateTeam(players){
+    this.roster = players
+    this.updateMessage('Team has been loaded!')
+    this.emit('teamLoaded')
   }
 
   handleActions(action){
     switch(action.type){
       case('CREATE_PLAYER'):{
         this.updatePlayer(action.player)
+        break
+      }
+      case('SHOW_TEAM'):{
+        this.updateTeam(action.team)
         break
       }
       default:{}

@@ -7,7 +7,6 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <Header />
         <Link to={"/Create"}>Update Rosters</Link>
         <br />
         <Link to={"/Teams"}>Review All Rosters</Link>

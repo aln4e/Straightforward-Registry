@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../components/Header';
 import {addPlayer} from '../actions/action';
+import playerStore from '../stores/store'
 
 class Create extends Component {
   constructor(props){
@@ -16,6 +17,14 @@ class Create extends Component {
       message:"",
       error:""
     }
+  }
+
+  redirect(){
+    this.props.history.push('/teams')
+  }
+
+  componentWillMount(){
+    playerStore.on('playerCreated', this.redirect.bind(this))
   }
 
   handleChange(e){
@@ -35,7 +44,6 @@ class Create extends Component {
   render() {
     return (
       <div className="container">
-        <Header />
         <form onSubmit={this.handleSubmit.bind(this)}>
           <div>
             <label>First Name: </label>
