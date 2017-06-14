@@ -24,7 +24,16 @@
   font-size: large;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.homePlayers {
+  max-height: 200px;
+}
+
+.jumbotron {
+  padding-left: 100px;
+  margin-top: -20px;
+  background-image: url('http://grfx.cstv.com/photos/schools/va/sports/m-baskbl/auto_a_astorywide/12325251.jpeg ');
+  height: 500px;
+  opacity: .7;
+  background-repeat: no-repeat;
+  background-size: cover;
 }

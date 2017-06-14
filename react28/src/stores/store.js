@@ -17,6 +17,10 @@ class PlayerStore extends EventEmitter{
     return this.message
   }
 
+  getRoster(){
+    return this.roster
+  }
+
   updateMessage(str){
     this.message = str
     this.emit('message')
